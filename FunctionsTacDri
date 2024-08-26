@@ -1,0 +1,76 @@
+//Minuta: Calculadora de Saturação de Ferro;
+
+function IndSatTransferrina () {
+ return SatTransferrina == (ferroSerico / TIBC) * 100;
+}
+console.log(IndSatTransferrina());    
+
+   if (ferroSerico >= 60 || ferroSerico <= 170) {
+    console.log ("Os níveis de ferro sérico estão dentro dos valores de referência")
+   } else {
+    console.log ("Os níveis de ferro sérico estão fora dos valores de referência")
+   }
+
+   if ( TIBC >= 240 || TIBC  <= 450) {
+    console.log ("Os níveis de TIBC estão dentro dos valores de referência")
+   } else {
+    console.log ("Os níveis de TIBC estão fora dos valores de referência")
+   }
+
+   if ( SatTransferrina >= 25 || SatTransferrina  <= 35) {
+    console.log ("Os níveis do índice de saturação de transferrina estão dentro dos valores de referência")
+   } else {
+    console.log ("Os níveis de índice de saturação de transferrina estão fora dos valores de referência")
+   }
+ 
+    
+    if(ferro == baixo && TIBC == alto && SatTransferrina == baixo) {
+    console.log ("Você pode estar com Deficiência de ferro");
+} else if (ferro == baixo && TIBC == baixo / normal && SatTransferrina == baixo / normal) {
+    console.log ("Você pode estar com Doença crônica relacionada ao ferro");
+} else if (ferro == alto && TIBC == normal && SatTransferrina == alto) {
+    console.log ("Você pode estar com Intoxicação por ferro");
+} else if ( ferro == alto && TIBC == baixo / normal && SatTransferrina == alto) {
+    console.log ("Você pode estar com Anemia hemolítica");
+} else if ( ferro == alto / normal && TIBC == baixo / normal && SatTransferrina == alto) {
+    console.log ("Você pode estar com Anemia sideroblástica");
+} else ( ferro == alto && TIBC == baixo  && SatTransferrina == alto) {
+    console.log ("Você pode estar com hemocromatose");
+}
+
+
+function MET() {
+    return gastoEnergetico = (MET * peso * [tempoAtv/60]); 
+}
+console.log(MET());
+
+
+function GET() {
+    return gastoEnergeticoTotal = (GEB * FAtividade * FEstresse * FTermico);
+}
+console.log(GET());
+
+
+function BalancoNitrogenado(){
+    return BN = (nitIng - nitExc);
+}
+console.log(BalancoNitrogenado());
+
+
+function IMC() {
+    return IMC = (peso / altura * 2);
+}
+console.log(IMC());
+
+
+function TMB () {
+    return TMB;
+
+}
+console.log(TMB());
+
+
+function FAT(){
+    return FAT;
+}
+console.log(FAT());
