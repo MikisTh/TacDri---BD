@@ -1,0 +1,26 @@
+Número do Alimento;Categoria do alimento;Descrição dos alimentos;Umidade (%);Energia (kcal);Energia (kJ);Proteína (g);Lipídeos (g);Colesterol (mg);Carboidrato (g);Fibra Alimentar (g);Cinzas (g);Cálcio (mg);Magnésio (mg);Manganês (mg);Fósforo (mg);Ferro (mg);Sódio (mg);Potássio (mg);Cobre (mg);Zinco (mg);Retinol (mcg);RE (mcg);RAE (mcg);Tiamina (mg);Riboflavina (mg);Piridoxina (mg);Niacina (mg);Vitamina C (mg)
+
+446;Leite e derivados;Bebida láctea, pêssego;87,7;55;231;2,1;1,9;5;7,6;0,3;0,7;89;9;Tr;63;Tr;46;62;0,02;0,2;Tr;;;0,03;0,14;Tr;0,33;2,1
+447;Leite e derivados;Creme de Leite;70,9;221;927;1,5;22,5;66;4,5;NA;0,6;83;8;0,01;118;0,3;52;119;0,02;0,3;128;;;Tr;0,1;Tr;0;Tr
+448;Leite e derivados;Iogurte, natural;90;51;215;4,1;3;14;1,9;NA;0,9;143;11;Tr;119;Tr;52;71;0,02;0,4;23;;;0,04;0,22;Tr;Tr;0,9
+449;Leite e derivados;Iogurte, natural, desnatado;89,2;41;174;3,8;0,3;3;5,8;NA;0,9;157;12;Tr;110;Tr;60;182;Tr;0,5;*;;;Tr;0,22;Tr;Tr;0,3
+450;Leite e derivados;Iogurte, sabor abacaxi;*;*;*;*;*;6;*;*;*;*;*;*;*;*;*;*;*;*;*;;;*;*;*;*;
+451;Leite e derivados;Iogurte, sabor morango;84,6;70;291;2,7;2,3;7;9,7;0,2;0,6;101;8;Tr;73;Tr;38;52;0,02;0,3;27;;;0,03;0,12;0,02;Tr;Tr
+452;Leite e derivados;Iogurte, sabor pêssego;85,1;68;284;2,5;2,3;8;9,4;0,7;0,6;95;8;Tr;66;0,1;37;52;0,02;0,3;21;;;0,02;0,1;Tr;0,38;Tr
+453;Leite e derivados;Leite, condensado;27;313;1308;7,7;6,7;28;57;NA;1,6;246;22;Tr;187;0,1;94;329;0,03;0,9;53;;;0,06;0,33;0,57;Tr;2,1
+454;Leite e derivados;Leite, de cabra;87,1;66;278;3,1;3,8;14;5,2;NA;0,9;112;10;Tr;113;0,1;74;140;0,04;0,4;35;;;Tr;0,14;Tr;Tr;Tr
+455;Leite e derivados;Leite, de vaca, achocolatado;80,9;83;347;2,1;2,2;6;14,2;0,6;0,7;70;13;0,05;71;0,5;72;155;0,04;0,3;39;;;0,07;0,29;0,14;1,23;3,3
+456;Leite e derivados;Leite, de vaca, desnatado, pó;3,1;362;1513;34,7;0,9;25;53;NA;8,2;1363;109;Tr;1673;0,9;432;1556;0,16;3,8;299;;;0,32;1,2;Tr;0,81;
+457;Leite e derivados;Leite, de vaca, desnatado, UHT;*;*;*;*;*;4;*;NA;0,8;134;10;Tr;85;Tr;51;140;0,02;0,4;Tr;;;0,04;0,26;Tr;1,49;Tr
+458;Leite e derivados;Leite, de vaca, integral;*;*;*;*;*;10;*;NA;0,8;123;10;Tr;82;Tr;64;133;0,02;0,4;21;;;0,04;0,24;Tr;1,52;Tr
+459;Leite e derivados;Leite, de vaca, integral, pó;2,7;497;2078;25,4;26,9;85;39,2;NA;5,8;890;77;Tr;1242;0,5;323;1132;0,11;2,7;361;;;0,24;1,03;Tr;Tr;*
+460;Leite e derivados;Leite, fermentado;81,9;70;291;1,9;0,1;2;15,7;NA;0,5;72;6;0,02;63;Tr;33;94;0,01;0,3;Tr;;;0,08;0,11;Tr;Tr;0,5
+461;Leite e derivados;Queijo, minas, frescal;56,1;264;1106;17,4;20,2;62;3,2;NA;3;579;7;0,02;123;0,9;31;105;Tr;0,3;161;;;Tr;0,25;Tr;Tr;Tr
+462;Leite e derivados;Queijo, minas, meia cura;47,1;321;1342;21,2;24,6;76;3,6;NA;3,5;696;27;0,02;403;0,2;501;120;0,07;2,7;111;;;0,03;0,32;Tr;Tr;
+463;Leite e derivados;Queijo, mozarela;45,3;330;1380;22,6;25,2;80;3;NA;3,8;875;24;0,03;470;0,3;581;62;0,08;3,5;109;;;Tr;0,2;Tr;Tr;
+464;Leite e derivados;Queijo, parmesão;21,2;453;1895;35,6;33,5;106;1,7;NA;8;992;33;0,05;745;0,5;1844;96;0,17;4,4;66;;;Tr;0,44;0,23;Tr;Tr
+465;Leite e derivados;Queijo, pasteurizado;54,4;303;1268;9,4;27,4;82;5,7;NA;3,1;323;16;0,01;578;0,3;780;194;0,05;1,3;57;;;Tr;0,2;Tr;Tr;Tr
+466;Leite e derivados;Queijo, petit suisse, morango;72,2;121;507;5,8;2,8;12;18,5;NA;0,7;731;27;0,02;448;0,1;412;121;0,01;2,7;273;;;0,22;0,27;0,21;2,68;Tr
+467;Leite e derivados;Queijo, prato;42,4;360;1506;22,7;29,1;91;1,9;NA;3,9;940;28;0,03;461;0,3;580;73;0,1;3,5;123;;;Tr;0,22;Tr;Tr;
+468;Leite e derivados;Queijo, requeijão, cremoso;62,5;257;1074;9,6;23,4;74;2,4;NA;2;259;12;0,02;448;0,1;558;93;0,05;1,3;195;;;Tr;0,19;Tr;Tr;Tr
+469;Leite e derivados;Queijo, ricota;73,6;140;585;12,6;8,1;49;3,8;NA;1,9;253;12;Tr;162;0,1;283;112;Tr;0,5;53;;;Tr;0,15;Tr;Tr;Tr
