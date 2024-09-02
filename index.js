@@ -1,23 +1,24 @@
 const btAdic = document.getElementById("btAdic");
-const inputNum = document.getElementById("inputNum");
-const inputSoma = document.getElementById("inputSoma");
-const inputMedia = document.getElementById("inputMedia");
+const inputFood = document.getElementById("inputFood");
+const inputGroup = document.getElementById("inputGroup");
 const inputQtd = document.getElementById("inputQtd");
 const btLimpar = document.getElementById("btLimpar");
 let somatorio = 0;
 let qtd = 0;
 
 const handleBtAdicionarClick = () => {
-  let num = parseInt(inputNum.value);
+  let num = parseInt(inputFood.value);
   if (isNaN(num)) {
-    alert("Digite um número inteiro!");
-    inputNum.focus();
+    alert("Informe o nome do alimento");
+    inputFood.focus();
     return;
   }
 
   ++qtd;
   somatorio += num;
   const media = somatorio / qtd;
+
+  
   inputSoma.value = somatorio;
   inputMedia.value = media;
   inputQtd.value = qtd;
@@ -27,10 +28,9 @@ const handleBtAdicionarClick = () => {
 
 const handleBtLimparClick = (evt) => {
   console.log("evt.target", evt.target);
-  inputSoma.value = 0;
-  inputMedia.value = 0;
-  inputQtd.value = 0;
-  inputNum.value = "";
+  inputFood.value = 0;
+  inputGroup.value = 0;
+  inputQtd.value = 0;  
   inputNum.focus();
 };
 
