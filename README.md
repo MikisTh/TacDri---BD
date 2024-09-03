@@ -1,6 +1,9 @@
 # TacDri---BD
 2024.2
 
+![aatable](https://github.com/user-attachments/assets/6b8f0c50-ae0c-4ed2-9e84-223b95eb743b)
+
+
 #Teste Glicêmico 
 GLICEMIA DE JEJUM
 HEMOGLOBINA GLICADA (HbA1c)
