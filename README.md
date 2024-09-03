@@ -1,10 +1,6 @@
 # TacDri---BD
 2024.2
 
-
-
-
-
 #Teste Glicêmico 
 GLICEMIA DE JEJUM
 HEMOGLOBINA GLICADA (HbA1c)
@@ -29,3 +25,6 @@ Colesterol HDL
 Colesterol LDL
 Colesterol VLDL
 Triglicerídeos
+
+
+#Hemograma
