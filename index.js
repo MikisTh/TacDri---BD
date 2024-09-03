@@ -19,8 +19,8 @@ const handleBtAdicionarClick = () => {
   const media = somatorio / qtd;
 
   
-  inputSoma.value = somatorio;
-  inputMedia.value = media;
+  inputFood.value = food;
+  inputGroup.value = group;
   inputQtd.value = qtd;
   inputNum.value = "";
   inputNum.focus();
