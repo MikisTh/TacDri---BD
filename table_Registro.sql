@@ -1,5 +1,5 @@
 .import aminoacidos.csv aminoacidos
-.import acidos-graxos.csv acidos-graxos
+.import acidosgraxos.csv acidos-graxos
 .import alimentos.csv alimentos
 .import dri.csv DRI
   
