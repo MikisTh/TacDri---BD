@@ -48,7 +48,7 @@ CREATE TABLE RDA_DRI (
     'Tirosina' varchar(20),
     'Valina' varchar(20),
     'Arginina' varchar(20),
-    'Histina' varchar(20),
+    'Histidina' varchar(20),
     'Alanina' varchar(20),
     'AcidoAspartico' varchar(20),
     'AcidoGlutamico' varchar(20),
