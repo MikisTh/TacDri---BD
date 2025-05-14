@@ -57,7 +57,7 @@ function BalancoNitrogenado(){
 console.log(BalancoNitrogenado());
 
 
-function IMC() {
+function IMC( peso, altura) {
     return IMC = (peso / altura * 2);
 }
 console.log(IMC());
