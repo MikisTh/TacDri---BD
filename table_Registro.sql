@@ -8,7 +8,7 @@ CREATE DATABASE tacDri_project;
 USE tacDri_project;
 
 create table Paciente(
-	  id_paciente int(11) auto_increment primary key,
+    id_paciente int(11) auto_increment primary key,
     nome_paciente varchar(125) not null,
     dt_nasc_paciente date,
     cpf_paciente int(15) unique not null,
@@ -19,7 +19,7 @@ create table Paciente(
 );
 
 create table Endereco(
-	  id_endereco int(11) auto_increment primary key,
+    id_endereco int(11) auto_increment primary key,
     logradouro varchar(100) not null,
     cep int(8)not null,
     bairro varchar(100) not null,
@@ -32,7 +32,7 @@ create table Endereco(
 );
 
 create table Telefone(
-	  id_telefone int(11) auto_increment primary key,
+    id_telefone int(11) auto_increment primary key,
     ddd int(3) not null,
     numero int(9) not null,
     medico_id int(11) default null,
@@ -41,8 +41,8 @@ create table Telefone(
     foreign key(nutricionista_id) references nutricionista (id_nutricionista) 
 );
 
-CREATE TABL Nutricionista(
-	  id_nutricionista int(11) auto_increment primary key,
+create table Nutricionista(
+    id_nutricionista int(11) auto_increment primary key,
     nome_nutricionista varchar(125) not null,
     cpf_nutricionista int(15) unique not null,
     crn varchar(13)unique not null,
@@ -53,7 +53,7 @@ CREATE TABL Nutricionista(
 );
 
 create table Especialidade(
-	  id_especialidade int(11) auto_increment primary key,
+    id_especialidade int(11) auto_increment primary key,
     nome_especialidade varchar(100)
 );
 
