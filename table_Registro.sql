@@ -25,7 +25,7 @@ create table Endereco(
     bairro varchar(100) not null,
     cidade varchar(100)not null,
     estado varchar(100)not null,
-    medico_id int(11) default null,
+    id_nutricionista int(11) default null,
     paciente_id int(11) default null,
     foreign key(paciente_id) references paciente (id_paciente),
     foreign key(nutricionista_id) references nutricionista (id_nutricionista) 
@@ -81,14 +81,16 @@ CREATE TABLE TACO (
 
   -- Inserindo dados na tabela Especialidade
 --
-insert into especialidade(id_especialidade, nome_especialidade) values(1, 'Pediatria');
-insert into especialidade(id_especialidade, nome_especialidade) values(2, 'Clínica');
-insert into especialidade(id_especialidade, nome_especialidade) values(3, 'Gastroenterologia');
-insert into especialidade(id_especialidade, nome_especialidade) values(4, 'Dermatologia');
-insert into especialidade(id_especialidade, nome_especialidade) values(5, 'Cardiologia');
-insert into especialidade(id_especialidade, nome_especialidade) values(6, 'Neurologia');
-insert into especialidade(id_especialidade, nome_especialidade) values(7, 'Ortopedia');
-
+insert into especialidade(id_especialidade, nome_especialidade) values(1, 'Nutrição Esportiva');
+insert into especialidade(id_especialidade, nome_especialidade) values(2, 'Nutrição Clínica');
+insert into especialidade(id_especialidade, nome_especialidade) values(3, 'Saúde Pública/Coletiva');
+insert into especialidade(id_especialidade, nome_especialidade) values(4, 'Nutrição Escolar');
+insert into especialidade(id_especialidade, nome_especialidade) values(5, 'Nutrição em Unidades de Alimentação (UAN)');
+insert into especialidade(id_especialidade, nome_especialidade) values(6, 'Nutrição Funcional');
+insert into especialidade(id_especialidade, nome_especialidade) values(7, 'Nutrição Materno-Infantil');
+insert into especialidade(id_especialidade, nome_especialidade) values(8, 'Nutrição Geriátrica');
+insert into especialidade(id_especialidade, nome_especialidade) values(9, 'Nutrição Em Marketing e Comunicação');
+insert into especialidade(id_especialidade, nome_especialidade) values(7, 'Nutrição Pesquisa e Docência');
 -- Inserindo dados na tabela Nutricionista
 --
 insert into nutricionista(id_nutricionista, nome_nutricionista, cpf_nutricionista, crn, email_nutricionista, cargo, especialidade_id) values(1, 'Miguel Borges', 1472581234, 745896, 'miguelborges@gmail.com', 'Residente', 6); 
@@ -103,9 +105,9 @@ insert into telefone(id_telefone, ddd, numero, medico_id, paciente_id) values(1,
 
 -- Inserindo dados na tabela Endereco
 --
-insert into endereco(id_endereco, logradouro, cep, bairro, cidade, estado, medico_id, paciente_id) values(1, 'Rua Cardeal Arcoverde', 05407-003, 'Pinheiros', 'São Paulo', 'São Paulo', null, 1);
+insert into endereco (id_endereco, logradouro, cep, bairro, cidade, estado, id_nutricionista, paciente_id) values(1, 'Rua Cardeal Arcoverde', 05407-003, 'Pinheiros', 'São Paulo', 'São Paulo', null, 1);
 
-alter table medico add em_atividade varchar(100);
+alter table nutricionista add em_atividade varchar(100);
 
-update medico set em_atividade = 'Ativo' where id_medico = 1;
-update medico set em_atividade = 'Inativo' where id_medico = 2;
+update nutricionista set em_atividade = 'Ativo' where id_nutricionista = 1;
+update nutricionista set em_atividade = 'Inativo' where id_nutricionista = 2;
