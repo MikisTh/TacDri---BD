@@ -46,8 +46,7 @@ Tela inicial (HomeScreen.tsx) implementada, com visualização básica.
 App configurado para exibir a HomeScreen diretamente via App.tsx.
 Estrutura de projeto modular criada, com separação por responsabilidade.
 Git inicializado e conectado ao repositório remoto do GitHub:
-Usuário GitHub: lucca7r
-Repositório remoto: https://github.com/lucca7r/NutriAi.git
+Usuário GitHub: mikisth
 
 ⚙️ Ambiente de Execução
 O projeto é executado com Expo Go no celular ou emulador.
