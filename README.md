@@ -10,6 +10,17 @@ Sobre o Projeto
 
 O Projeto Backend TacDri é uma aplicação desenvolvida para fornecer uma API robusta e eficiente para suportar as funcionalidades do frontend TacDri. Utilizando tecnologias modernas e boas práticas de desenvolvimento, o projeto oferece um ambiente seguro e escalável para lidar com as operações de cadastro de usuários, gerenciamento de posts e comentários, entre outras funcionalidades. Aplicativo de apoio nutricional, onde o usuário pode registrar sua dieta atual (caso tenha acompanhamento profissional) e quantificar com base nos dados fornecidos pela TACO e realizar os cálculos nutricionais básicos para dianóstico nutricional ou receber orientações básicas de nutrição com base em perguntas guiadas. O app também oferece um chat com inteligência artificial (GPT API) para sugerir trocas de refeições e receitas fitness personalizadas. 
 
+Avaliação Nutricional
+Antropometria
+Exames Biquimicos
+Registro Alimentar
+Anamnese
+  -História Dietética
+ - Histórico Familiar
+ - Histórico Medicametos
+ - Sinais e Sintomas
+   
+
 
 📁 Estrutura de Pastas
 TACDRI/
@@ -49,9 +60,8 @@ Git inicializado e conectado ao repositório remoto do GitHub:
 Usuário GitHub: mikisth
 
 ⚙️ Ambiente de Execução
-O projeto é executado com Expo Go no celular ou emulador.
 
-Inicialização do app via terminal com: npx expo start
+ terminal >  npx expo start
 
 
 📝 Observações
