@@ -1,30 +1,107 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TacDri - NutriMikis</title>
-  <title>Calculadora de IMC</title>
-  <script src="./script.js"></script>
+  <title>Calculadoras – Vitaminas, Minerais e Índices</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-
   <div class="container">
-    <h1>Calculadora de IMC</h1>
-    
-    <form id="formIMC">
-      <label for="peso">Peso (kg):</label>
-      <input type="number" id="peso" step="0.01" required>
+    <h1>Calculadoras Nutricionais</h1>
 
-      <label for="altura">Altura (m):</label>
-      <input type="number" id="altura" step="0.01" required>
+    <!-- Saturação de Ferro -->
+    <section class="card">
+      <h2>Índice de Saturação de Transferrina</h2>
+      <label>Ferro sérico (µg/dL)</label>
+      <input type="number" id="ferroSerico">
 
-      <button type="submit">Calcular</button>
-    </form>
+      <label>TIBC (µg/dL)</label>
+      <input type="number" id="TIBC">
 
-    <div id="resultado" class="resultado"></div>
+      <button id="btnTransferrina">Calcular</button>
+      <div class="resultado" id="resTransferrina"></div>
+    </section>
+
+    <!-- IMC -->
+    <section class="card">
+      <h2>IMC</h2>
+      <label>Peso (kg)</label>
+      <input type="number" id="pesoIMC">
+
+      <label>Altura (m)</label>
+      <input type="number" id="alturaIMC" step="0.01">
+
+      <button id="btnIMC">Calcular</button>
+      <div class="resultado" id="resIMC"></div>
+    </section>
+
+    <!-- MET -->
+    <section class="card">
+      <h2>Gasto Energético (MET)</h2>
+      <label>Peso (kg)</label>
+      <input type="number" id="pesoMET">
+
+      <label>Tempo Atividade (min)</label>
+      <input type="number" id="tempoAtv">
+
+      <label>MET</label>
+      <input type="number" id="valorMET">
+
+      <button id="btnMET">Calcular</button>
+      <div class="resultado" id="resMET"></div>
+    </section>
+
+    <!-- GET -->
+    <section class="card">
+      <h2>GET</h2>
+
+      <label>GEB</label>
+      <input type="number" id="GEB">
+
+      <label>Fator Atividade</label>
+      <input type="number" id="FAtividade">
+
+      <label>Fator Estresse</label>
+      <input type="number" id="FEstresse">
+
+      <label>Fator Térmico</label>
+      <input type="number" id="FTermico">
+
+      <button id="btnGET">Calcular</button>
+      <div class="resultado" id="resGET"></div>
+    </section>
+
+    <!-- Balanço Nitrogenado -->
+    <section class="card">
+      <h2>Balanço Nitrogenado</h2>
+
+      <label>Nitrogênio Ingerido</label>
+      <input type="number" id="nitIng">
+
+      <label>Nitrogênio Excretado</label>
+      <input type="number" id="nitExc">
+
+      <button id="btnBN">Calcular</button>
+      <div class="resultado" id="resBN"></div>
+    </section>
+
+    <!-- Nutrientes -->
+    <section class="card">
+      <h2>Cálculo de Nutrientes (TACO)</h2>
+
+      <label>Alimento</label>
+      <input type="text" id="nomeAlimento" placeholder="Ex: Leite integral">
+
+      <label>Quantidade (g)</label>
+      <input type="number" id="quantidadeAlimento" placeholder="100">
+
+      <button id="btnAddConsumo">Adicionar alimento</button>
+      <button id="btnCalcularNutrientes">Calcular Totais</button>
+      <div class="resultado" id="resNutrientes"></div>
+    </section>
+
   </div>
 
   <script src="script.js"></script>
