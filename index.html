@@ -306,3 +306,210 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nutri App + Login Back4App</title>
+
+<style>
+body{font-family:Arial;background:#f4f6f9;margin:0}
+header{background:#2b6777;color:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+nav a{color:#fff;margin-right:15px;text-decoration:none}
+.container{padding:20px}
+section{display:none;background:#fff;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+section.active{display:block}
+.card{background:#f8fbff;padding:15px;border-radius:8px;margin-top:10px;border:1px solid #e0ecff}
+input,button{padding:8px;margin:4px 0}
+button{cursor:pointer;background:#2b6777;color:#fff;border:none;border-radius:5px}
+button:disabled{background:#aaa}
+#userInfo{font-weight:bold}
+</style>
+</head>
+
+<body>
+<header>
+  <div>
+    <strong>NutriApp</strong>
+    <nav>
+      <a href="#" onclick="show('home')">Home</a>
+      <a href="#" onclick="show('registro')">Registro Alimentar</a>
+      <a href="#" onclick="show('dieta')">Dieta</a>
+      <a href="#" onclick="show('planejamento')">Planejamento</a>
+      <a href="#" onclick="show('tacdri')">TAC/DRI</a>
+      <a href="#" onclick="show('calc')">Calculadora Nutricional</a>
+    </nav>
+  </div>
+
+  <div>
+    <span id="userInfo">Deslogado</span>
+    <button id="btShowLogin" onclick="show('login')">Login</button>
+    <button id="btLogout" disabled>Logout</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- HOME -->
+  <section id="home" class="active">
+    <h2>Bem-vindo(a) ao NutriApp</h2>
+    <p>Gerencie dieta, registros alimentares e cálculos nutricionais em um só lugar.</p>
+  </section>
+
+  <!-- LOGIN -->
+  <section id="login">
+    <h2>Login</h2>
+    <p>Usuário: <input id="inputUsername" /></p>
+    <p>Senha: <input type="password" id="inputPassword" /></p>
+    <button id="btLogin">Entrar</button>
+
+    <h3>Ou crie sua conta</h3>
+    <p>Email: <input type="email" id="inputEmail" /></p>
+    <button id="btSignUp">Cadastrar</button>
+  </section>
+
+  <!-- REGISTRO -->
+  <section id="registro">
+    <h2>Registro Alimentar</h2>
+    <div class="card">
+      <p>Exemplo: registrar refeições aqui…</p>
+    </div>
+  </section>
+
+  <!-- DIETA -->
+  <section id="dieta">
+    <h2>Dieta</h2>
+    <div class="card">
+      <p>Monte planos alimentares…</p>
+    </div>
+  </section>
+
+  <!-- PLANEJAMENTO -->
+  <section id="planejamento">
+    <h2>Planejamento</h2>
+    <div class="card">
+      <p>Organize metas e refeições semanais…</p>
+    </div>
+  </section>
+
+  <!-- TAC/DRI -->
+  <section id="tacdri">
+    <h2>Tabela TAC / DRI</h2>
+    <div class="card">
+      <p>Informações nutricionais e recomendações…</p>
+    </div>
+  </section>
+
+  <!-- CALCULADORA -->
+  <section id="calc">
+    <h2>Calculadora Nutricional</h2>
+
+    <div class="card">
+      <h3>IMC</h3>
+      <input type="number" id="pesoIMC" placeholder="Peso (kg)">
+      <input type="number" id="alturaIMC" step="0.01" placeholder="Altura (m)">
+      <button onclick="calcIMC()">Calcular</button>
+      <div id="resIMC"></div>
+    </div>
+
+    <div class="card">
+      <h3>Saturação de Transferrina</h3>
+      <input type="number" id="ferroSerico" placeholder="Ferro (µg/dL)">
+      <input type="number" id="TIBC" placeholder="TIBC (µg/dL)">
+      <button onclick="calcTransferrina()">Calcular</button>
+      <div id="resTransferrina"></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+// -------- NAV --------
+function show(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+// -------- BACK4APP --------
+const btSignUp=document.getElementById("btSignUp");
+const btLogin=document.getElementById("btLogin");
+const btLogout=document.getElementById("btLogout");
+const inputUsername=document.getElementById("inputUsername");
+const inputPassword=document.getElementById("inputPassword");
+const inputEmail=document.getElementById("inputEmail");
+const userInfo=document.getElementById("userInfo");
+
+const baseURL="https://parseapi.back4app.com";
+const usersURL=`${baseURL}/users`;
+const loginURL=`${baseURL}/login`;
+const logoutURL=`${baseURL}/logout`;
+
+const headers={
+ "X-Parse-Application-Id":"IjMQNnxBbsuYKEsnvNuQhwiEw9pkLJkwWfhB9aG1",
+ "X-Parse-REST-API-Key":"ip0a7zYuKwJNXicmLC5TkLN6DGWVbLhRtIYDjU6R",
+};
+const headersRev={...headers,"X-Parse-Revocable-Session":"1"};
+const headersJson={...headersRev,"Content-Type":"application/json"};
+
+btSignUp.onclick=async()=>{
+ const username=inputUsername.value.trim();
+ const password=inputPassword.value.trim();
+ const email=inputEmail.value.trim();
+ if(!username||!password||!email)return alert("Preencha tudo!");
+ const r=await fetch(usersURL,{method:"POST",headers:headersJson,body:JSON.stringify({username,password,email})});
+ const d=await r.json();
+ if(!r.ok)return alert(d.error);
+ alert("Cadastro realizado! Faça login.");
+};
+
+btLogin.onclick=async()=>{
+ const username=inputUsername.value.trim();
+ const password=inputPassword.value.trim();
+ if(!username||!password)return alert("Preencha usuário e senha!");
+ const r=await fetch(loginURL,{method:"POST",headers:headersRev,body:new URLSearchParams({username,password})});
+ const d=await r.json();
+ if(!r.ok)return alert(d.error);
+ localStorage.user=JSON.stringify(d);
+ loadUser();
+ show("home");
+};
+
+btLogout.onclick=async()=>{
+ const user=JSON.parse(localStorage.user||"null");
+ if(!user)return;
+ await fetch(logoutURL,{method:"POST",headers:{...headers,"X-Parse-Session-Token":user.sessionToken}});
+ delete localStorage.user;
+ loadUser();
+ show("home");
+};
+
+function loadUser(){
+ const u=JSON.parse(localStorage.user||"null");
+ if(u){
+  userInfo.textContent=`Olá, ${u.username}`;
+  btLogout.disabled=false;
+ }else{
+  userInfo.textContent="Deslogado";
+  btLogout.disabled=true;
+ }
+}
+loadUser();
+
+// -------- CALCULADORAS --------
+function calcIMC(){
+ const p=parseFloat(pesoIMC.value);
+ const a=parseFloat(alturaIMC.value);
+ if(!p||!a)return;
+ resIMC.textContent="IMC: "+(p/(a*a)).toFixed(2);
+}
+function calcTransferrina(){
+ const f=parseFloat(ferroSerico.value);
+ const t=parseFloat(TIBC.value);
+ if(!f||!t)return;
+ resTransferrina.textContent="Saturação: "+((f/t)*100).toFixed(1)+"%";
+}
+</script>
+</body>
+</html>
+
