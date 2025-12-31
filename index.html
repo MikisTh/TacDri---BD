@@ -1,139 +1,308 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TACDRI</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portal Nutricional</title>
 
-  <!-- CSS e JS -->
-  <link rel="stylesheet" href="index.css" />
-  <script defer src="index.js"></script>
-
-  <!-- Cor do navegador em mobile -->
-  <meta name="theme-color" content="#0f3d25" />
+<style>
+  :root{
+    --lime:#b3ff00;
+    --green:#0f3d25;
+    --dark:#071710;
+    --card:#0e261a;
+  }
+  *{box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+  body{
+    margin:0;
+    background:linear-gradient(135deg,#02110c,#0f3d25);
+    color:#eaffea;
+  }
+  header{
+    background:#071710bb;
+    backdrop-filter:blur(6px);
+    padding:14px 20px;
+    border-bottom:2px solid var(--lime);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+  }
+  header h1{margin:0;color:var(--lime)}
+  nav a{
+    color:#dfffd9;
+    margin:0 6px;
+    text-decoration:none;
+    padding:8px 12px;
+    border-radius:8px;
+    transition:.2s;
+  }
+  nav a:hover, nav a.active{
+    background:var(--lime);
+    color:#02200f;
+  }
+  .container{
+    max-width:1100px;
+    margin:25px auto;
+    padding:0 15px;
+    display:grid;
+    gap:18px;
+  }
+  .card{
+    background:linear-gradient(135deg,#0e261a,#0f3d25);
+    border:1px solid #3aff4d40;
+    border-radius:18px;
+    padding:18px 20px;
+    box-shadow:0 0 18px #00ff1920;
+    animation:fade .4s ease;
+  }
+  @keyframes fade{from{opacity:0;transform:translateY(5px)}}
+  label{display:block;margin-top:10px}
+  input,select{
+    width:100%;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #6eff4f60;
+    background:#0c2c1b;
+    color:#eaffea;
+  }
+  button{
+    margin-top:14px;
+    padding:10px 16px;
+    border-radius:12px;
+    border:none;
+    background:linear-gradient(135deg,#b3ff00,#50ff40);
+    color:#02200f;
+    font-weight:bold;
+    cursor:pointer;
+  }
+  .resultado{
+    margin-top:12px;
+    padding:10px;
+    background:#08311c;
+    border-radius:10px;
+  }
+  footer{
+    text-align:center;
+    padding:14px;
+    border-top:1px solid #28ff4040;
+  }
+  section.page{display:none}
+  section.page.active{display:block}
+</style>
 </head>
 
 <body>
-  <header class="app-header">
-    <h1>⚡ Calculadoras Nutricionais</h1>
-    <p class="subtitle">Vitaminas • Minerais • Índices e Metabolismo</p>
-  </header>
 
-  <main class="container">
+<header>
+  <h1>⚡ Portal Nutricional</h1>
+  <nav>
+    <a data-page="home" class="active">Home</a>
+    <a data-page="registro">Registro Alimentar</a>
+    <a data-page="dieta">Dieta</a>
+    <a data-page="planejamento">Planejamento</a>
+    <a data-page="tacdri">TAC/DRI</a>
+    <a data-page="calc">Calculadoras</a>
+  </nav>
+</header>
 
-    <!-- Saturação de Ferro -->
-    <section class="card">
-      <fieldset>
-        <legend>Índice de Saturação de Transferrina</legend>
+<main class="container">
 
-        <label for="ferroSerico">Ferro sérico (µg/dL)</label>
-        <input type="number" id="ferroSerico" placeholder="Ex: 80" inputmode="decimal" />
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <div class="card">
+      <h2>Bem-vindo ao Portal Nutricional</h2>
+      <p>Gerencie sua alimentação, planeje dietas e calcule nutrientes de forma simples.</p>
+    </div>
+  </section>
 
-        <label for="TIBC">TIBC (µg/dL)</label>
-        <input type="number" id="TIBC" placeholder="Ex: 320" inputmode="decimal" />
+  <!-- REGISTRO -->
+  <section id="registro" class="page">
+    <div class="card">
+      <h2>Registro Alimentar</h2>
 
-        <button id="btnTransferrina">🔍 Calcular</button>
-        <output class="resultado" id="resTransferrina"></output>
-      </fieldset>
-    </section>
+      <label>Alimento</label>
+      <input id="alimentoReg" placeholder="Ex: Arroz cozido">
 
-    <!-- IMC -->
-    <section class="card">
-      <fieldset>
-        <legend>IMC — Índice de Massa Corporal</legend>
+      <label>Quantidade (g)</label>
+      <input type="number" id="gramasReg" placeholder="100">
 
-        <label for="pesoIMC">Peso (kg)</label>
-        <input type="number" id="pesoIMC" placeholder="Ex: 70" inputmode="decimal" />
+      <button onclick="adicionarRegistro()">Registrar</button>
 
-        <label for="alturaIMC">Altura (m)</label>
-        <input type="number" id="alturaIMC" step="0.01" placeholder="Ex: 1.70" inputmode="decimal" />
+      <div class="resultado" id="listaRegistro">
+        Nenhum alimento registrado ainda.
+      </div>
+    </div>
+  </section>
 
-        <button id="btnIMC">⚖️ Calcular</button>
-        <output class="resultado" id="resIMC"></output>
-      </fieldset>
-    </section>
+  <!-- DIETA -->
+  <section id="dieta" class="page">
+    <div class="card">
+      <h2>Dieta</h2>
 
-    <!-- MET -->
-    <section class="card">
-      <fieldset>
-        <legend>Gasto Energético (MET)</legend>
+      <label>Objetivo</label>
+      <select>
+        <option>Perda de peso</option>
+        <option>Ganho de massa</option>
+        <option>Manutenção</option>
+      </select>
 
-        <label for="pesoMET">Peso (kg)</label>
-        <input type="number" id="pesoMET" placeholder="Ex: 70" inputmode="decimal" />
+      <label>Calorias diárias</label>
+      <input type="number" placeholder="Ex: 2000">
+    </div>
+  </section>
 
-        <label for="tempoAtv">Tempo de Atividade (min)</label>
-        <input type="number" id="tempoAtv" placeholder="Ex: 30" inputmode="numeric" />
+  <!-- PLANEJAMENTO -->
+  <section id="planejamento" class="page">
+    <div class="card">
+      <h2>Planejamento Semanal</h2>
+      <p>Monte seu cardápio semanal. (Podemos transformar em tabela depois 😉)</p>
+    </div>
+  </section>
 
-        <label for="valorMET">MET</label>
-        <input type="number" id="valorMET" placeholder="Ex: 5" inputmode="decimal" />
+  <!-- TAC / DRI -->
+  <section id="tacdri" class="page">
+    <div class="card">
+      <h2>Tabelas TAC & DRI</h2>
+      <p>Aqui você poderá consultar nutrientes por alimento.</p>
+    </div>
+  </section>
 
-        <button id="btnMET">🔥 Calcular</button>
-        <output class="resultado" id="resMET"></output>
-      </fieldset>
-    </section>
+  <!-- CALCULADORAS -->
+  <section id="calc" class="page">
 
-    <!-- GET -->
-    <section class="card">
-      <fieldset>
-        <legend>GET — Gasto Energético Total</legend>
+    <div class="card">
+      <h3>Índice de Saturação de Transferrina</h3>
 
-        <label for="GEB">GEB</label>
-        <input type="number" id="GEB" placeholder="Ex: 1500" inputmode="decimal" />
+      <label>Ferro sérico (µg/dL)</label>
+      <input type="number" id="ferroSerico">
 
-        <label for="FAtividade">Fator Atividade</label>
-        <input type="number" id="FAtividade" placeholder="Ex: 1.3" inputmode="decimal" />
+      <label>TIBC (µg/dL)</label>
+      <input type="number" id="TIBC">
 
-        <label for="FEstresse">Fator Estresse</label>
-        <input type="number" id="FEstresse" placeholder="Ex: 1.1" inputmode="decimal" />
+      <button onclick="calcTransferrina()">Calcular</button>
+      <div class="resultado" id="resTransferrina"></div>
+    </div>
 
-        <label for="FTermico">Fator Térmico</label>
-        <input type="number" id="FTermico" placeholder="Ex: 1.1" inputmode="decimal" />
+    <div class="card">
+      <h3>IMC</h3>
 
-        <button id="btnGET">⚡ Calcular</button>
-        <output class="resultado" id="resGET"></output>
-      </fieldset>
-    </section>
+      <label>Peso (kg)</label>
+      <input type="number" id="pesoIMC">
 
-    <!-- Balanço Nitrogenado -->
-    <section class="card">
-      <fieldset>
-        <legend>Balanço Nitrogenado</legend>
+      <label>Altura (m)</label>
+      <input type="number" id="alturaIMC" step="0.01">
 
-        <label for="nitIng">Nitrogênio Ingerido</label>
-        <input type="number" id="nitIng" placeholder="Ex: 16" inputmode="decimal" />
+      <button onclick="calcIMC()">Calcular</button>
+      <div class="resultado" id="resIMC"></div>
+    </div>
 
-        <label for="nitExc">Nitrogênio Excretado</label>
-        <input type="number" id="nitExc" placeholder="Ex: 14" inputmode="decimal" />
+    <div class="card">
+      <h3>Gasto Energético (MET)</h3>
 
-        <button id="btnBN">🧪 Calcular</button>
-        <output class="resultado" id="resBN"></output>
-      </fieldset>
-    </section>
+      <label>Peso (kg)</label>
+      <input type="number" id="pesoMET">
 
-    <!-- Nutrientes -->
-    <section class="card">
-      <fieldset>
-        <legend>Cálculo de Nutrientes (TACO)</legend>
+      <label>Tempo (min)</label>
+      <input type="number" id="tempoAtv">
 
-        <label for="nomeAlimento">Alimento</label>
-        <input type="text" id="nomeAlimento" placeholder="Ex: Leite integral" autocomplete="off" />
+      <label>MET</label>
+      <input type="number" id="valorMET">
 
-        <label for="quantidadeAlimento">Quantidade (g)</label>
-        <input type="number" id="quantidadeAlimento" placeholder="100" inputmode="numeric" />
+      <button onclick="calcMET()">Calcular</button>
+      <div class="resultado" id="resMET"></div>
+    </div>
 
-        <div class="btn-group">
-          <button id="btnAddConsumo">➕ Adicionar alimento</button>
-          <button id="btnCalcularNutrientes">📊 Calcular Totais</button>
-        </div>
+    <div class="card">
+      <h3>GET</h3>
 
-        <output class="resultado" id="resNutrientes"></output>
-      </fieldset>
-    </section>
+      <label>GEB</label>
+      <input type="number" id="GEB">
 
-  </main>
+      <label>Fator Atividade</label>
+      <input type="number" id="FAtividade">
 
-  <footer class="app-footer">
-    <p>© 2025 — Calculadoras Nutricionais</p>
-  </footer>
+      <label>Fator Estresse</label>
+      <input type="number" id="FEstresse">
+
+      <label>Fator Térmico</label>
+      <input type="number" id="FTermico">
+
+      <button onclick="calcGET()">Calcular</button>
+      <div class="resultado" id="resGET"></div>
+    </div>
+
+    <div class="card">
+      <h3>Balanço Nitrogenado</h3>
+
+      <label>Nitrogênio Ingerido</label>
+      <input type="number" id="nitIng">
+
+      <label>Nitrogênio Excretado</label>
+      <input type="number" id="nitExc">
+
+      <button onclick="calcBN()">Calcular</button>
+      <div class="resultado" id="resBN"></div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2025 — Portal Nutricional
+</footer>
+
+<script>
+  // Navegação SPA simples
+  const links=document.querySelectorAll('nav a');
+  const pages=document.querySelectorAll('.page');
+  links.forEach(a=>{
+    a.onclick=()=>{
+      links.forEach(l=>l.classList.remove('active'));
+      a.classList.add('active');
+      pages.forEach(p=>p.classList.remove('active'));
+      document.getElementById(a.dataset.page).classList.add('active');
+    };
+  });
+
+  // Registro alimentar (básico)
+  let registro=[];
+  function adicionarRegistro(){
+    const ali=document.getElementById('alimentoReg').value;
+    const g=document.getElementById('gramasReg').value;
+    if(!ali||!g)return;
+    registro.push(`${ali} — ${g}g`);
+    document.getElementById('listaRegistro').innerHTML=registro.map(i=>`• ${i}`).join('<br>');
+  }
+
+  // Calculadoras
+  function calcTransferrina(){
+    const f=+ferroSerico.value, t=+TIBC.value;
+    if(!f||!t)return;
+    resTransferrina.textContent=`${((f/t)*100).toFixed(1)} %`;
+  }
+  function calcIMC(){
+    const p=+pesoIMC.value, a=+alturaIMC.value;
+    if(!p||!a)return;
+    resIMC.textContent=`${(p/(a*a)).toFixed(2)}`;
+  }
+  function calcMET(){
+    const p=+pesoMET.value, m=+tempoAtv.value, met=+valorMET.value;
+    if(!p||!m||!met)return;
+    resMET.textContent=`${(p*met*(m/60)).toFixed(1)} kcal`;
+  }
+  function calcGET(){
+    const g=+GEB.value, fa=+FAtividade.value||1, fe=+FEstresse.value||1, ft=+FTermico.value||1;
+    if(!g)return;
+    resGET.textContent=`${(g*fa*fe*ft).toFixed(0)} kcal`;
+  }
+  function calcBN(){
+    const i=+nitIng.value, e=+nitExc.value;
+    if(!i||!e)return;
+    resBN.textContent=`${(i-e).toFixed(1)} g N`;
+  }
+</script>
+
 </body>
 </html>
